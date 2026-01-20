@@ -57,7 +57,7 @@ Users can:
 - Built with **FastAPI**
 - Key endpoints:
   - `GET /api/titles` — returns titles matching applied filters
-  - `POST /api/recommend` — accepts seed IDs + filters and returns recommendations (similarity scores hidden)
+  - `POST /api/recommend` — accepts seed IDs + filters and returns recommendations (similarity scores)
 
 - **`recommender_core.py`**  
   Loads embeddings, metadata, and FAISS index; applies filters; queries nearest neighbors; formats responses.
