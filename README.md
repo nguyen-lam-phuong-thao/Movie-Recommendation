@@ -113,13 +113,13 @@ Users can:
 Movie_DA/
 ├── netflix_titles.csv
 └── disney_plus_titles.csv
-
-2️⃣ Run the pipeline
+```
+### 2️⃣ Run the pipeline
 python pipeline/preprocess.py
 python pipeline/embedder.py
 python pipeline/indexer.py
 
-3️⃣ Expected outputs (artifacts/)
+### 3️⃣ Expected outputs (artifacts/)
 artifacts/
 ├── titles_clean.parquet
 ├── titles_clean.csv
