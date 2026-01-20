@@ -115,10 +115,11 @@ Movie_DA/
 └── disney_plus_titles.csv
 ```
 ### 2️⃣ Run the pipeline
-
+```bash
   python pipeline/preprocess.py
   python pipeline/embedder.py
   python pipeline/indexer.py
+```
 
 ### 3️⃣ Expected outputs (artifacts/)
 ```text
@@ -130,48 +131,44 @@ artifacts/
 ├── titles_faiss.index
 └── index_manifest.json
 ```
+
 ### ▶️ Manual Run (Local)
+
+Updated instructions for the Docker Compose section so everything comes up with a single command while still keeping the per-service commands under the “Manual Run” section:
+
  ## Backend
-  ```text
+  ```bash
   cd backend
   python -m venv .venv
   source .venv/bin/activate        # Windows: .venv\Scripts\activate
   pip install -r requirements.txt
   uvicorn backend.app:app --reload
-
-  - API: http://127.0.0.1:8000
 ```
+  - API: http://127.0.0.1:8000
+    
   ## Frontend
-  ```text
+  ```bash
   cd frontend
   npm install
   npm run dev -- --host 0.0.0.0 --port 5173
-
+```
   - UI: http://127.0.0.1:5173
   - Ensure VITE_API_BASE_URL points to the backend URL.
-```
 
 ## User Flow:
 Open UI → apply filters → view Results → select seeds → click Recommend → view Recommendations
 
 ### 🐳 Docker Compose
-## Requirements
-
-- artifacts/ must already exist (not version-controlled)
-
-## Configuration
-
-- Backend: Dockerfile.backend
-- Frontend: frontend/Dockerfile
-- API base URL: http://localhost:8000
-
 ## Build & Run
-- docker compose up --build
+```bash
+ docker compose up --build
+```
 
 ## Access
-
+```text
 - Frontend: http://localhost:5173
 - API: http://localhost:8000/api/...
+```
 
 ### 📁 Project Structure
 ```text
