@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.venv/
+
+# Node/React
+frontend/node_modules/
+frontend/dist/
+
+# Environment / editor
+.env
+.DS_Store
+Thumbs.db
+*.log
+
+# Docker
+*.pyc
+*.pid
+.idea/
+.vscode/
+
+# Build outputs
+*.egg-info/
+

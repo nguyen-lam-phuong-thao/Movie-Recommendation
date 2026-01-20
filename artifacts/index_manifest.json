@@ -1,0 +1,8 @@
+{
+  "generated_at": "2026-01-15T13:41:53.571248+00:00",
+  "source_embeddings": "D:\\thao\\d\\DATA- ANALYST\\Viet_Anh_Class\\Week 6\\artifacts\\title_embeddings.npy",
+  "num_vectors": 10234,
+  "vector_dim": 384,
+  "backend": "faiss",
+  "index_file": "D:\\thao\\d\\DATA- ANALYST\\Viet_Anh_Class\\Week 6\\artifacts\\titles_faiss.index"
+}
