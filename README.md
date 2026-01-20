@@ -115,11 +115,13 @@ Movie_DA/
 └── disney_plus_titles.csv
 ```
 ### 2️⃣ Run the pipeline
-python pipeline/preprocess.py
-python pipeline/embedder.py
-python pipeline/indexer.py
+
+  python pipeline/preprocess.py
+  python pipeline/embedder.py
+  python pipeline/indexer.py
 
 ### 3️⃣ Expected outputs (artifacts/)
+```text
 artifacts/
 ├── titles_clean.parquet
 ├── titles_clean.csv
@@ -127,82 +129,78 @@ artifacts/
 ├── titles_metadata.parquet
 ├── titles_faiss.index
 └── index_manifest.json
+```
+### ▶️ Manual Run (Local)
+ ## Backend
+  ```text
+  cd backend
+  python -m venv .venv
+  source .venv/bin/activate        # Windows: .venv\Scripts\activate
+  pip install -r requirements.txt
+  uvicorn backend.app:app --reload
 
-▶️ Manual Run (Local)
-Backend
-cd backend
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn backend.app:app --reload
+  - API: http://127.0.0.1:8000
+```
+  ## Frontend
+  ```text
+  cd frontend
+  npm install
+  npm run dev -- --host 0.0.0.0 --port 5173
 
+  - UI: http://127.0.0.1:5173
+  - Ensure VITE_API_BASE_URL points to the backend URL.
+```
 
-API: http://127.0.0.1:8000
-
-Frontend
-cd frontend
-npm install
-npm run dev -- --host 0.0.0.0 --port 5173
-
-
-UI: http://127.0.0.1:5173
-
-Ensure VITE_API_BASE_URL points to the backend URL.
-
-Flow:
+## User Flow:
 Open UI → apply filters → view Results → select seeds → click Recommend → view Recommendations
 
-🐳 Docker Compose
-Requirements
+### 🐳 Docker Compose
+## Requirements
 
-artifacts/ must already exist (not version-controlled)
+- artifacts/ must already exist (not version-controlled)
 
-Configuration
+## Configuration
 
-Backend: Dockerfile.backend
+- Backend: Dockerfile.backend
+- Frontend: frontend/Dockerfile
+- API base URL: http://localhost:8000
 
-Frontend: frontend/Dockerfile
+## Build & Run
+- docker compose up --build
 
-API base URL: http://localhost:8000
+## Access
 
-Build & Run
-docker compose up --build
+- Frontend: http://localhost:5173
+- API: http://localhost:8000/api/...
 
-Access
+### 📁 Project Structure
+```text
+  Week 6/
+  ├── backend/
+  │   ├── app.py
+  │   ├── recommender_core.py
+  │   ├── schemas.py
+  │   ├── recommender.py
+  │   ├── settings.py
+  │   └── requirements.txt
+  ├── frontend/
+  │   ├── src/
+  │   ├── package.json
+  │   └── Dockerfile
+  ├── pipeline/
+  │   ├── preprocess.py
+  │   ├── embedder.py
+  │   └── indexer.py
+  ├── artifacts/        # generated outputs (not tracked)
+  ├── Movie_DA/         # raw datasets (not tracked)
+  ├── Dockerfile.backend
+  ├── docker-compose.yml
+  └── .gitignore
+```
 
-Frontend: http://localhost:5173
+### 🚀 Deployment Notes
 
-API: http://localhost:8000/api/...
-
-📁 Project Structure
-Week 6/
-├── backend/
-│   ├── app.py
-│   ├── recommender_core.py
-│   ├── schemas.py
-│   ├── recommender.py
-│   ├── settings.py
-│   └── requirements.txt
-├── frontend/
-│   ├── src/
-│   ├── package.json
-│   └── Dockerfile
-├── pipeline/
-│   ├── preprocess.py
-│   ├── embedder.py
-│   └── indexer.py
-├── artifacts/        # generated outputs (not tracked)
-├── Movie_DA/         # raw datasets (not tracked)
-├── Dockerfile.backend
-├── docker-compose.yml
-└── .gitignore
-
-🚀 Deployment Notes
-
-Do not commit Movie_DA/ and artifacts/; provide instructions or download links instead.
-
-When updating filter schemas, ensure pipeline, backend, and frontend are updated consistently.
-
-Set VITE_API_BASE_URL to a browser-accessible host.
-
-For production, consider building the frontend (npm run build) and serving dist/ via the backend or a reverse proxy.
+- Do not commit Movie_DA/ and artifacts/; provide instructions or download links instead.
+- When updating filter schemas, ensure pipeline, backend, and frontend are updated consistently.
+- Set VITE_API_BASE_URL to a browser-accessible host.
+- For production, consider building the frontend (npm run build) and serving dist/ via the backend or a reverse proxy.
