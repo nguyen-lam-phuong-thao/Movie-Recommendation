@@ -1,5 +1,5 @@
 # Movie Recommendations (Netflix + Disney+)
-The purpose of this **personal project** is to **review and strengthen knowledge in recommendation systems, natural language processing (NLP), and data analysis.  
+The purpose of this **personal project** is to review and strengthen knowledge in recommendation systems, natural language processing (NLP), and data analysis.  
 In order to practice an end-to-end workflow, including **data preprocessing, text embedding, vector-based similarity search** and **building a backend API and user interface**, the project makes use of real-world data from streaming platforms (Netflix & Disney+).
 
 The goal of the development process is to gain a better understanding of the design and operation of a **content-based recommendation system** by using widely used tools and techniques.  
