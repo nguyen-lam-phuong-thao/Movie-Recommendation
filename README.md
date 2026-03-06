@@ -19,6 +19,12 @@ Users can:
 
 ---
 
+## 🎥 Demo
+
+![Movie recommender demo](Animation.gif)
+
+---
+
 ## ❓ Problem & Solution
 
 ### Problem
